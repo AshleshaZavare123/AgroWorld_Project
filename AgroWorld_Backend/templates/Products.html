@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Products - AgroWorld</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f0fff0;
+        color: #2e7d32;
+    }
+    header {
+        width: 100%;
+        background: #2e7d32;
+        color: white;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    header h2 { cursor: pointer; }
+    header nav a {
+        margin: 0 15px;
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+    }
+    header nav a:hover { color: #a5d6a7; }
+    h2.section-title {
+        text-align: center;
+        margin: 40px 0 20px;
+        font-size: 32px;
+    }
+    .container {
+        width: 90%;
+        margin: 20px auto 60px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+    .card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        overflow: hidden;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: contain;
+        background: white;
+        padding: 10px;
+    }
+    .card h3 {
+        margin: 15px 0 10px;
+        font-size: 20px;
+    }
+    .price {
+        font-size: 18px;
+        font-weight: bold;
+        color: #27ae60;
+        margin-bottom: 15px;
+    }
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        background: #2e7d32;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        margin-bottom: 15px;
+    }
+    .btn:hover {
+        background: #1b5e20;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2><a href="{{ url_for('home') }}" style="color:white; text-decoration:none;">AGRO WORLD</a></h2>
+    <nav>
+     <a href="home.html">Home</a>
+    <a href="Products.html">Products</a>
+    <a href="login.html">login</a>
+    <a href="orderview.html">orderview</a>
+    </nav>
+</header>
+
+<!-- Fertilizers Section -->
+<h2 class="section-title">Fertilizers</h2>
+<div class="container">
+
+    <div class="card">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.YuZL1-44j7gY7yE-tkuEqAHaHa">
+        <h3>Urea Fertilizer (45kg)</h3>
+        <p class="price">₹650</p>
+        <button class="btn" onclick="addToOrder('Urea Fertilizer (45kg)',650)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://m.media-amazon.com/images/I/61cI-L63A5L._SL1042_.jpg">
+        <h3>NPK 19-19-19</h3>
+        <p class="price">₹480</p>
+        <button class="btn" onclick="addToOrder('NPK 19-19-19',480)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://acarpghana.com/wp-content/uploads/2024/01/organic-compost-fertilizer.jpg">
+        <h3>Organic Compost (5kg)</h3>
+        <p class="price">₹220</p>
+        <button class="btn" onclick="addToOrder('Organic Compost (5kg)',220)">Buy Now</button>
+    </div>
+
+</div>
+
+<!-- Seeds Section -->
+<h2 class="section-title">Seeds</h2>
+<div class="container">
+
+    <div class="card">
+        <img src="https://5.imimg.com/data5/ANDROID/Default/2023/11/359543133/HZ/ZR/RD/189534960/product-jpeg-1000x1000.jpg">
+        <h3>Wheat Seeds (1kg)</h3>
+        <p class="price">₹90</p>
+        <button class="btn" onclick="addToOrder('Wheat Seeds (1kg)',90)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://down-ph.img.susercontent.com/file/a27d4ec484951860cf97e2ed9d85dded">
+        <h3>Rice Seeds (1kg)</h3>
+        <p class="price">₹120</p>
+        <button class="btn" onclick="addToOrder('Rice Seeds (1kg)',120)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://5.imimg.com/data5/IOS/Default/2024/9/454739048/XA/GG/XR/65966306/product-jpeg-1000x1000.png">
+        <h3>Tomato Hybrid Seeds</h3>
+        <p class="price">₹150</p>
+        <button class="btn" onclick="addToOrder('Tomato Hybrid Seeds',150)">Buy Now</button>
+    </div>
+
+</div>
+
+<!-- Pesticides Section -->
+<h2 class="section-title">Pesticides</h2>
+<div class="container">
+
+    <div class="card">
+        <img src="https://5.imimg.com/data5/SELLER/Default/2022/8/XM/ZF/BJ/8648164/systemic-fungicides-ryzol-75-1000x1000.png">
+        <h3>Tricyclazole</h3>
+        <p class="price">₹450</p>
+        <button class="btn" onclick="addToOrder('Tricyclazole',450)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://5.imimg.com/data5/ANDROID/Default/2025/5/509172551/LQ/CH/CK/122072445/product-jpeg-1000x1000.jpg">
+        <h3>Imidacloprid</h3>
+        <p class="price">₹380</p>
+        <button class="btn" onclick="addToOrder('Imidacloprid',380)">Buy Now</button>
+    </div>
+
+    <div class="card">
+        <img src="https://thelittlebigplantcompany.com/cdn/shop/files/ScreenShot2024-05-22at11.31.12AM_1200x1200.png?v=1716399078">
+        <h3>Herbal Eco Pesticide</h3>
+        <p class="price">₹250</p>
+        <button class="btn" onclick="addToOrder('Herbal Eco Pesticide',250)">Buy Now</button>
+    </div>
+
+</div>
+
+<script>
+function addToOrder(product, price){
+    alert(product + " added to your order at ₹" + price);
+}
+</script>
+
+</body>
+</html>
+>

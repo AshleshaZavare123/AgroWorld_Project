@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroWorld Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e3ffe7, #d9ffe0, #ffffff);
+        }
+        .signup-box {
+            width: 380px;
+            padding: 40px 35px;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+        .signup-box h2 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #2e7d32;
+        }
+        .signup-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 2px solid #b7e1b8;
+            outline: none;
+            transition: .3s;
+        }
+        .signup-box input:focus {
+            border-color: #2e7d32;
+            box-shadow: 0 0 6px rgba(46,125,50,0.4);
+        }
+        .signup-box button {
+            width: 100%;
+            padding: 12px;
+            background: #2e7d32;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .signup-box button:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46,125,50,0.4);
+        }
+        .signup-box a {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #2e7d32;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="signup-box">
+        <h2>Create Account</h2>
+
+        <!-- 🔗 Backend Signup Route -->
+        <form action="/signup" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Create Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <!-- 🔗 Back to Login -->
+        <a href="/">Already have an account? Login</a>
+    </div>
+
+</body>
+</html>

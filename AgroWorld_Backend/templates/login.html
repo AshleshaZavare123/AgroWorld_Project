@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login - AgroWorld</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f0fff0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+h2 { color: #27ae60; margin-bottom: 25px; }
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #27ae60;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover { background: #1e8449; }
+a { display: block; margin-top: 15px; color: #27ae60; text-decoration: none; }
+a:hover { text-decoration: underline; }
+.message {
+    margin-bottom: 15px;
+    color: red;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Login to AgroWorld</h2>
+
+    <!-- 🔗 Backend Login Route -->
+    <form action="/login" method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- 🔗 Signup Route -->
+    <a href="/signup">Don't have an account? Sign Up</a>
+</div>
+
+</body>
+</html>

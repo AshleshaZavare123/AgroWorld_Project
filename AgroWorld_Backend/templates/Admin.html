@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AgroWorld Admin Panel</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Roboto', Arial, sans-serif; background: #f4f4f4; }
+
+header {
+    background: #27ae60;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.container h2 {
+    color: #27ae60;
+    margin-bottom: 20px;
+}
+
+form input, form textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+form button {
+    width: 100%;
+    padding: 14px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th {
+    background: #27ae60;
+    color: white;
+    padding: 12px;
+}
+
+table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.btn-edit {
+    background: #f1c40f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h2>AgroWorld Admin Panel</h2>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/logout">Logout</a>
+    </nav>
+</header>
+
+<div class="container">
+
+<h2>Add New Product</h2>
+
+<form method="POST" action="{{ url_for('add_product') }}">
+    <input type="text" name="name" placeholder="Product Name" required>
+    <input type="text" name="category" placeholder="Category" required>
+    <input type="number" name="price" placeholder="Price" required>
+    <textarea name="description" placeholder="Description" rows="3" required></textarea>
+    <button type="submit">Add Product</button>
+</form>
+
+<h2>Existing Products</h2>
+
+<table>
+<thead>
+<tr>
+    <th>Product Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+{% for p in products %}
+<tr>
+    <td>{{ p.name }}</td>
+    <td>{{ p.category }}</td>
+    <td>{{ p.price }}</td>
+    <td>{{ p.description }}</td>
+    <td>
+        <a href="/delete_product/{{ p.id }}"
+           onclick="return confirm('Delete this product?')">
+           <button class="btn-delete">Delete</button>
+        </a>
+    </td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+</div>
+
+</body>
+</html>
