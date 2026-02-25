@@ -1,4 +1,6 @@
- AgroWorld – Agriculture Products Portal
+git add README.md
+git commit -m "updated professional readme"
+git push AgroWorld – Agriculture Products Portal
 
 AgroWorld is a mini agriculture e-commerce web application developed using Python Flask.
 The system allows users to create an account, login and view agricultural products, while the admin can manage product records from the admin panel.

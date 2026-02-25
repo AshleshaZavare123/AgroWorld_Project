@@ -3,15 +3,23 @@ from db import get_connection
 
 app = Flask(__name__)
 
-
+# ---------------- DEFAULT ROUTE ----------------
 @app.route("/")
+def default():
+    return redirect("/login")
+
+
+# ---------------- LOGIN PAGE ----------------
+@app.route("/login")
 def login():
     return render_template("login.html")
 
 
+# ---------------- SIGNUP ----------------
 @app.route("/signup")
 def signup():
     return render_template("signup.html")
+
 
 @app.route("/signup", methods=["POST"])
 def signup_post():
@@ -28,9 +36,10 @@ def signup_post():
     conn.commit()
     conn.close()
 
-    return redirect("/")
+    return redirect("/login")
 
 
+# ---------------- LOGIN POST ----------------
 @app.route("/login", methods=["POST"])
 def login_post():
     email = request.form["email"]
@@ -51,15 +60,25 @@ def login_post():
         return "Invalid Login"
 
 
+# ---------------- HOME ----------------
 @app.route("/home")
 def home():
     return render_template("home.html")
 
 
+# ---------------- PRODUCTS ----------------
 @app.route("/products")
 def products():
-    return render_template("Products.html")
+    return render_template("products.html")
 
+
+# ---------------- ORDERVIEW PAGE ----------------
+@app.route("/orderview")
+def orderview():
+    return render_template("orderview.html")
+
+
+# ---------------- ADMIN ----------------
 @app.route("/admin")
 def admin():
     conn = get_connection()
@@ -68,9 +87,10 @@ def admin():
     products = cursor.fetchall()
     conn.close()
 
-    return render_template("Admin.html", products=products)
+    return render_template("admin.html", products=products)
 
 
+# ---------------- ADD PRODUCT ----------------
 @app.route("/add_product", methods=["POST"])
 def add_product():
     name = request.form["name"]
@@ -90,6 +110,7 @@ def add_product():
     return redirect("/admin")
 
 
+# ---------------- DELETE PRODUCT ----------------
 @app.route("/delete_product/<int:id>")
 def delete_product(id):
     conn = get_connection()
@@ -101,9 +122,10 @@ def delete_product(id):
     return redirect("/admin")
 
 
+# ---------------- LOGOUT ----------------
 @app.route("/logout")
 def logout():
-    return redirect("/")
+    return redirect("/login")
 
 
 if __name__ == "__main__":
